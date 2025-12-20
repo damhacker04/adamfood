@@ -32,10 +32,11 @@ class RoleSeeder extends Seeder
                 'description' => 'Pelanggan',
             ],
 
-            DB::table('roles')->insert($roles);
+           
 
 
 
         ];
+        DB::table('roles')->insert($roles);
     }
 }

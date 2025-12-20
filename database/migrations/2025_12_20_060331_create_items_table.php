@@ -31,6 +31,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('order_items', function (Blueprint $table) {
+        if (Schema::hasColumn('order_items', 'item_id')) {
+            $table->dropForeign(['item_id']); // nama default: order_items_item_id_foreign
+        }
+    });
         Schema::dropIfExists('items');
     }
 };
