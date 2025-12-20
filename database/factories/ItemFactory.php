@@ -21,7 +21,11 @@ class ItemFactory extends Factory
             'category_id' => $this->faker->numberBetween(1, 2),
             'price' => $this->faker->randomFloat(1, 100),
             'description' => $this->faker->text(),
-            'img' => $this->faker->imageUrl(),
+            'img' => fake()->randomElement([
+                'https://images.unsplash.com/photo-1569718212165-3a8278d5f624',
+                'https://images.unsplash.com/photo-1563612116625-3012372fccce',
+                'https://images.unsplash.com/photo-1708782340377-882559d544fb',
+            ]),
             'is_active' => $this->faker->boolean(),
         ];
     }
