@@ -3,12 +3,15 @@
 @section('content')
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5">
-    <h1 class="text-center text-white display-6">Keranjang</h1>
+    <h1 class="text-center text-white display-6">Keranjang Anda</h1>
     <ol class="breadcrumb justify-content-center mb-0">
-        <li class="breadcrumb-item active text-primary">Silakan periksa pesanan Anda</li>
+        <li class="breadcrumb-item active text-primary">Berikut menu yang anda telah pilih</li>
     </ol>
 </div>
 <!-- Single Page Header End -->
+
+
+
 <div class="container-fluid py-5">
     <div class="container py-5">
         @if (session('success'))
@@ -122,7 +125,7 @@
 </div>
 @endsection
 
-@section('script')
+@section('scripts')
     <script>
         function updateQuantity(itemId, change) {
             var qtyInput = document.getElementById('qty-' + itemId);
