@@ -11,9 +11,9 @@
         @if ($order->payment_method == 'tunai' && $order->status == 'pending')
             <p class="text-center"><span class="badge bg-danger">Menunggu pembayaran</span></p>
         @elseif ($order->payment_method == 'qris' && $order->status == 'pending')
-            <p class="text-center"><span class="badge bg-success">Menunggu konfirmasi pembayaran</span></p>
+            <p class="text-center"><span class="badge bg-warning">Menunggu konfirmasi pembayaran</span></p>
         @else
-            <p class="text-center"><span class="badge bg-danger">Pembayaran berhasil, pesanan segera diproses</span></p>
+            <p class="text-center"><span class="badge bg-success">Pembayaran berhasil, pesanan segera diproses</span></p>
         @endif
         <hr>
         <h4 class="fw-bold text-center">Kode Bayar: <br><span class="text-primary">{{$order->order_code}}</span> </h4>

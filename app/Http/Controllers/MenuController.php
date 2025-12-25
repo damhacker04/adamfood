@@ -144,7 +144,7 @@ class MenuController extends Controller
             
             $itemDetails[] = [
                 'id' => $item['id'],
-                'price' => (int) $item['price'] + ( $item['price'] * 0.1),
+                'price' => (int) ($item['price'] + ( $item['price'] * 0.1)),
                 'quantity' => $item['qty'],
                 'name' => substr($item['name'], 0, 50),
             ];
@@ -181,7 +181,45 @@ class MenuController extends Controller
 
         Session::forget('cart');
 
-        return redirect()->route('checkout.success', ['orderId' => $order->order_code])->with('success', 'Pemesanan berhasil dibuat');
+        if($request->payment_method == 'tunai') {
+            return redirect()->route('checkout.success', ['orderId' => $order->order_code])->with('success', 'Pemesanan berhasil dibuat');
+        }else{
+            \Midtrans\Config::$serverKey = config('midtrans.server_key');
+            \Midtrans\Config::$isProduction = config('midtrans.is_production');
+            \Midtrans\Config::$isProduction = config('midtrans.is_production');
+            \Midtrans\Config::$isSanitized = true;
+            \Midtrans\Config::$is3ds = true;
+
+            $params = [
+                'transaction_details' => [
+                    'order_id' => $order->order_code,
+                    'gross_amount' => (int) $order->grand_total,
+                ],
+                'item_details' => $itemDetails,
+                'customer_details' => [
+                    'first_name' => $user->fullname,
+                    'phone' => $user->phone
+                ],
+                'payment_type' => 'qris',
+        ];
+
+        try{
+            $snapToken = \Midtrans\Snap::getSnapToken($params);
+
+            return response()->json([
+                'status' => 'success',
+                'snap_token' => $snapToken,
+                'order_code' => $order->order_code
+            ]);
+        }catch(\Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ]);
+        }
+            return redirect()->route('checkout.qris', ['orderId' => $order->order_code]);
+        }
+        
 
         
     }
