@@ -61,7 +61,7 @@
                             </td>
                             <td>{{ $order->table_number }}</td>
                             <td>{{ $order->payment_method }}</td>
-                            <td>{{ $order->note ?? '-' }}</td>
+                            <td>{{ $order->notes ?? '-' }}</td>
                             <td>{{ $order->created_at->format('d-m-Y H:i') }}</td>
                             <td>
                                 <span class="btn btn-primary btn-sm">
