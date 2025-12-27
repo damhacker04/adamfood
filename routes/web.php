@@ -31,3 +31,5 @@ Route::resource('categories', CategoryController::class);
 Route::resource('items', itemController::class);
 Route::resource('roles', RoleController::class);
 Route::resource('orders', OrderController::class);
+
+Route::post('items/update-Status/{order}', [itemController::class, 'updateStatus'])->name('items.updateStatus');
