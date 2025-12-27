@@ -54,7 +54,7 @@ class itemController extends Controller
             'category_id.exists' => 'Kategori tidak ditemukan.',
             'img.image' => 'File harus berupa gambar.',
             'img.mimes' => 'Format gambar tidak didukung.', 
-            'img.max' => 'Batas maksimum file adalah 2 MB'
+            'img.max' => 'Batas maksimum file adalah 2 MB',
             'is_active.required'=>'Status aktif harus diisi',
             'is_active.boolean'=>'Status aktif harus bersifat true atau false',
         ]);
@@ -110,7 +110,7 @@ class itemController extends Controller
             'category_id.exists' => 'Kategori tidak ditemukan.',
             'img.image' => 'File harus berupa gambar.',
             'img.mimes' => 'Format gambar tidak didukung.', 
-            'img.max' => 'Batas maksimum file adalah 2 MB'
+            'img.max' => 'Batas maksimum file adalah 2 MB',
             'is_active.required'=>'Status aktif harus diisi',
             'is_active.boolean'=>'Status aktif harus bersifat true atau false',
         ]);
