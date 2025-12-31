@@ -14,7 +14,7 @@
         "APP_ENV": "production",
         "APP_DEBUG": "false",
         "APP_URL": "https://adamfood.vercel.app",
-        "APP_KEY": "base64:mBuYmd/xY3+SszPbhXmUyAo5bf+GUvlQRgLxb4bU+9s=",
+        "APP_KEY": "base64:oSkczfFBZJb9TBWQH4kwg7/Qiy2Va6lCGN4F1NHjbu0=",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
